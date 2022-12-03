@@ -1,12 +1,22 @@
 import express from 'express'
-import { cadastrarUsuario } from './use-cases/cadastrar-usuario.use-case.js'
+import { connectDb } from './db.js'
+import { handleError } from './error-handler.js'
+import { createUsuarioRoutes } from './routes/usuario.route.js'
+
+const startApp = async (app) => {
+  await connectDb()
+
+  app.use(express.json())
+
+  createUsuarioRoutes(app)
+
+  app.use(handleError)
+
+  app.listen(3001, () => {
+    console.log('Servidor rodando na porta 3001')
+  })
+}
 
 const app = express()
 
-app.use(express.json())
-
-app.post('/usuario', cadastrarUsuario)
-
-app.listen(3001, () => {
-  console.log('Servidor rodando na porta 3001')
-})
+startApp(app)
