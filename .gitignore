@@ -7,7 +7,7 @@ yarn-error.log*
 lerna-debug.log*
 
 # Firebase Credentials
-coletaeficiente-firebase-adminsdk-ku5xp-25ee218fc4.json
+coletaeficiente-firebase-adminsdk-ku5xp-de3ef46972.json
 
 # Diagnostic reports (https://nodejs.org/api/report.html)
 report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
