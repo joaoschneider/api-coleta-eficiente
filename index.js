@@ -1,6 +1,7 @@
 import express from 'express'
 import { connectDb } from './db.js'
 import { handleError } from './error-handler.js'
+import { createPrivateRoutes } from './routes/private.route.js'
 import { createUsuarioRoutes } from './routes/usuario.route.js'
 
 const startApp = async (app) => {
@@ -9,6 +10,7 @@ const startApp = async (app) => {
   app.use(express.json())
 
   createUsuarioRoutes(app)
+  createPrivateRoutes(app)
 
   app.use(handleError)
 
