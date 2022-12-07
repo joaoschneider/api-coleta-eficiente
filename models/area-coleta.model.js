@@ -1,16 +1,20 @@
+import mongoose from 'mongoose'
 import { Schema } from 'mongoose'
 
-const pontoCentralSchema = new Schema({
-  type: {
-    type: String,
-    enum: ['Point'],
-    required: true,
+const pontoCentralSchema = new Schema(
+  {
+    type: {
+      type: String,
+      enum: ['Point'],
+      required: true,
+    },
+    coordenadas: {
+      type: [Number],
+      required: true,
+    },
   },
-  coordenadas: {
-    type: [Number],
-    required: true,
-  },
-})
+  { _id: false }
+)
 
 const areaColetaSchema = new Schema({
   nome: {
