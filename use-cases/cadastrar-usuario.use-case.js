@@ -2,12 +2,13 @@ import { TIPO_USUARIO } from '../constants/tipo-usuario.constant.js'
 import { getFirebaseAuth } from '../firebase-auth.js'
 import { UsuarioModel } from '../models/usuario.model.js'
 
-const cadastrarUsuario = async ({ email, senha, cpf, nome }) => {
+const cadastrarUsuario = async ({ email, senha, cpf, nome, idArea }) => {
   const usuarioCriado = await UsuarioModel.create({
     nome,
     cpf,
     email,
     tipo: TIPO_USUARIO.CIDADAO,
+    idArea,
   })
 
   const usuarioFirebase = await getFirebaseAuth().createUser({
