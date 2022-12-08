@@ -1,6 +1,7 @@
 import express from 'express'
 import { connectDb } from './db.js'
 import { handleError } from './error-handler.js'
+import { createAreaColetaRoutes } from './routes/area-coleta.route.js'
 import { createPrivateRoutes } from './routes/private.route.js'
 import { createUsuarioRoutes } from './routes/usuario.route.js'
 
@@ -11,6 +12,7 @@ const startApp = async (app) => {
 
   createUsuarioRoutes(app)
   createPrivateRoutes(app)
+  createAreaColetaRoutes(app)
 
   app.use(handleError)
 
