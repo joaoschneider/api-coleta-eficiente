@@ -5,6 +5,7 @@ import { SolicitacaoColetaModel } from '../models/solicitacao-coleta.model.js'
 import { UsuarioModel } from '../models/usuario.model.js'
 
 const cadastrarSolicitacaoColeta = async ({ uid, pontoColeta }) => {
+  console.log('cadastrando coleta!')
   const usuario = await UsuarioModel.findOne({ firebaseId: uid })
   const usuarioPossuiSolicitacaoPendente = await SolicitacaoColetaModel.findOne(
     {
